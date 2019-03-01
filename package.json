@@ -1,0 +1,14 @@
+{
+  "name": "acclub-swapi-chatbot",
+  "version": "1.0.0",
+  "description": "conversate with AC-3PO (chatbot)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Andrew Roembke",
+  "license": "ISC",
+  "dependencies": {
+    "swapi-node": "^0.4.4"
+  }
+}
