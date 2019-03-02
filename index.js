@@ -16,7 +16,7 @@ const app = dialogflow({debug:true});
 // SAMPLE INTENT HANDLER
  app.intent("test", (conv) => {
      
-     let newVariable = "redeploy please";
+     let newVariable = "Luke Skywalker";
           conv.ask(newVariable);
 
   // LOGIC FOR THIS INTENT GOES HERE:
