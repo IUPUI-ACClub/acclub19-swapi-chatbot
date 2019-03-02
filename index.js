@@ -15,7 +15,10 @@ const app = dialogflow({debug:true});
 
 // SAMPLE INTENT HANDLER
  app.intent("test", (conv) => {
-     conv.ask("Luke Skywalker");
+     
+     let newVariable = "redeploy please";
+          conv.ask(newVariable);
+
   // LOGIC FOR THIS INTENT GOES HERE:
 
     // let Luke = "";
