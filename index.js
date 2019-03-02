@@ -21,7 +21,7 @@ const app = dialogflow({debug:true});
   // LOGIC FOR THIS INTENT GOES HERE:
 
     let Luke = Luke.getPerson(1);
-    conv.ask(Luke.name)
+    conv.ask(Luke.name);
     swapi.getPerson(1).then((result) => {
     return result;
 });
