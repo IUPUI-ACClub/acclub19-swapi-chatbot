@@ -7,9 +7,7 @@ const {dialogflow} = require('actions-on-google');
 
 const functions = require('firebase-functions');
 
-const swapi = require('swapi-node');
-
-
+// const swapi = require('swapi-node');
 
 const app = dialogflow({debug:true});
 
