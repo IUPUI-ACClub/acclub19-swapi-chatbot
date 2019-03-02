@@ -18,12 +18,12 @@ const app = dialogflow({debug:true});
 
   // LOGIC FOR THIS INTENT GOES HERE:
 
-    let Luke = "";
-    Luke = Luke.getPerson(1);
-    conv.ask(Luke['name']);
-    swapi.getPerson(1).then((result) => {
-    return result;
-});
+    // let Luke = "";
+    // Luke = Luke.getPerson(1);
+    conv.ask("Luke Skywalker");
+    // swapi.getPerson(1).then((result) => {
+    // return result;
+//     });
 
   // TO RETURN TO DIALOGFLOW AND CONTINUE THE CONVERSATION, USE conv.ask()
     // conv.ask(`Let's chat some more.`);
