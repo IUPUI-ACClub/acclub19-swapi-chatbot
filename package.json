@@ -9,6 +9,9 @@
   "author": "Andrew Roembke",
   "license": "ISC",
   "dependencies": {
-    "swapi-node": "^0.4.4"
+    "swapi-node": "^0.4.4",
+    "actions-on-google":"^2.5.0",
+  	"firebase-admin":"^7.0.0",
+  	"firebase-functions": "^2.2.0"
   }
 }
