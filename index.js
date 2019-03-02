@@ -15,12 +15,12 @@ const app = dialogflow({debug:true});
 
 // SAMPLE INTENT HANDLER
  app.intent("test", (conv) => {
-
+     conv.ask("Luke Skywalker");
   // LOGIC FOR THIS INTENT GOES HERE:
 
     // let Luke = "";
     // Luke = Luke.getPerson(1);
-    conv.ask("Luke Skywalker");
+    
     // swapi.getPerson(1).then((result) => {
     // return result;
 //     });
