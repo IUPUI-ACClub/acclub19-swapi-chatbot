@@ -14,7 +14,7 @@ const app = dialogflow({debug:true});
 // const swapi = require('swapi-node');
 
 // SAMPLE INTENT HANDLER
- app.intent("SAMPLE_INTENT_NAME_FROM_DIALOGFLOW", (conv) => {
+ app.intent("test", (conv) => {
 
   // LOGIC FOR THIS INTENT GOES HERE:
 
