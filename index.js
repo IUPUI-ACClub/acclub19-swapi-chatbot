@@ -26,7 +26,7 @@ let URL_ROOT = "https://swapi.co/api/";
      console.log("inside first test intent");
 
     // resolve handles 200 status codes, reject handles 500.
-        
+
         swapi.getPerson(1).then((result) => {
             console.log(result);
             if (result) {
@@ -35,7 +35,7 @@ let URL_ROOT = "https://swapi.co/api/";
             else reject ("Something went wrong");
         });
 
-    });
+  
 
     //  let newVariable = "Luke Skywalker";
     //       conv.ask(newVariable);
@@ -57,7 +57,7 @@ let URL_ROOT = "https://swapi.co/api/";
 
   // TO RETURN TO DIALOGFLOW AND END THE CONVERSATION, USE conv.close()
     // conv.close(`Goodbye.`);
- });
+ 
 
  exports.generateStarWarsUniverse = functions.https.onRequest(app);
 
