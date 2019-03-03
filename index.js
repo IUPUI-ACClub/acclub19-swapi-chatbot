@@ -64,10 +64,11 @@ const PEOPLE_ROOT = "people/1";
         return new Promise(
             (resolve, reject) => {
                 console.log("inside promise");
+                //failhere
                 request.get(url, function(error, response, data){
                     if (error) reject(error);
 
-                   //fyi, .parse does the opposite of .stringify
+                   // .parse does the opposite of .stringify
                     let content = JSON.parse(data);
                     let name = content["name"];
                     console.log(content);
@@ -88,8 +89,8 @@ const PEOPLE_ROOT = "people/1";
     getLukeSkywalker(url).then((luke) => {
       console.log("Luke variable set..." + luke);
       conv.ask(new SimpleResponse({
-          speech: "This is a response " + luke,
-          text: "This is a response " + luke,
+          speech: "This is a response " ,
+          text: "This is a response " ,
       }))
     })
 
