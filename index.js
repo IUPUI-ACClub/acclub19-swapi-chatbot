@@ -74,7 +74,7 @@ const PEOPLE_ROOT = "people/1";
             console.log(name);
             
             resolve(name => {
-                var answer = result.key;
+                var Luke = result.key;
             });
 
             //  getLukeSkywalker.then(function(nme) {
@@ -87,8 +87,8 @@ const PEOPLE_ROOT = "people/1";
         );
     };
 
-    let Luke = "";
-    Luke = getLukeSkywalker(url);
+    // let Luke = "";
+    // Luke = getLukeSkywalker(url);
     console.log("Luke variable set..." + Luke);
     conv.ask(new SimpleResponse({
         speech: "This is a response " + Luke,
