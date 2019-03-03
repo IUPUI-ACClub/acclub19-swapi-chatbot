@@ -62,8 +62,7 @@ const PEOPLE_ROOT = "people/1";
 
     let getLukeSkywalker = (url) => {
         console.log("inside getter");
-        let promise = new Promise();
-        return promise(
+        return new Promise();(
             (resolve, reject) => {
                 console.log("inside promise");
                 request.get(url, function(error, response, data){
@@ -79,7 +78,7 @@ const PEOPLE_ROOT = "people/1";
             
             
 
-             promise.then(function(nme) {
+             getLukeSkywalker.then(function(nme) {
                   console.log("resolved "+ nme);
                   return nme;
              });
