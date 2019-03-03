@@ -74,8 +74,8 @@ const PEOPLE_ROOT = "people/1";
             console.log(content);
             console.log(name);
             
-            resolve(result => {
-                let answer = result.key;
+            resolve(content => {
+                let answer = content.key;
                 answer = JSON.stringify(answer);
                 console.log("inside resolve method");
                   conv.ask(new SimpleResponse({
