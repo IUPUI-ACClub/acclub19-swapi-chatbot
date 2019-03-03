@@ -73,15 +73,16 @@ const PEOPLE_ROOT = "people/1";
             let name = content.name;
             console.log(content);
             console.log(name);
+            return name;
             
             resolve(content => {
                 let answer = content.key;
                 // answer = JSON.stringify(answer);
                 console.log("inside resolve method");
-                  conv.ask(new SimpleResponse({
-                    speech: "This is a response " + answer,
-                    text: "This is a response " + answer,
-                }))
+                //   conv.ask(new SimpleResponse({
+                //     speech: "This is a response " + answer,
+                //     text: "This is a response " + answer,
+                // }))
             });
 
             //  getLukeSkywalker.then(function(nme) {
@@ -97,10 +98,10 @@ const PEOPLE_ROOT = "people/1";
     let Luke = "";
     Luke = getLukeSkywalker(url);
     console.log("Luke variable set..." + Luke);
-    // conv.ask(new SimpleResponse({
-    //     speech: "This is a response " + Luke,
-    //     text: "This is a response " + Luke,
-    // }))
+    conv.ask(new SimpleResponse({
+        speech: "This is a response " + Luke,
+        text: "This is a response " + Luke,
+    }))
 
     // conv.ask(Luke);
 
