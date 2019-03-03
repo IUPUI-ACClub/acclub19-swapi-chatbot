@@ -56,7 +56,7 @@ const PEOPLE_ROOT = "people/1";
 
     let url = URL_ROOT + PEOPLE_ROOT;
     let Luke = "";
-    Luke = Luke.getLukeSkywalker(url);
+    Luke = getLukeSkywalker(url);
     console.log(url);
 
     let getLukeSkywalker = (url) => {
