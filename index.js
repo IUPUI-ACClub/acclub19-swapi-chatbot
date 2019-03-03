@@ -67,15 +67,19 @@ const PEOPLE_ROOT = "people/1";
                 console.log("inside promise");
                 request.get(url, function(error, response, data){
                     if (error) reject(error);
-
+   
     let content = JSON.parse(data);
             let name = content.name;
             console.log(content);
             console.log(name);
             
             resolve(name);
-            console.log("resolved "+ name);
-            return name;
+
+             getLukeSkywalker.then(function(nme) {
+                  console.log("resolved "+ nme);
+                  return nme;
+             });
+           
                 })
             }
         );
