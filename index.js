@@ -88,14 +88,14 @@ const PEOPLE_ROOT = "people/1";
 
     getLukeSkywalker(url).then((luke) => {
       console.log("Luke variable set..." + luke);
-      conv.ask(luke);
-          
-      )
+      conv.ask(new SimpleResponse({
+          speech: "This is a response " + luke,
+          text: "This is a response " + luke,
+      }))
     })
 
 });
 
-//new SimpleResponse({ })
   // TO RETURN TO DIALOGFLOW AND CONTINUE THE CONVERSATION, USE conv.ask()
     // conv.ask(`Let's chat some more.`);
 
