@@ -54,10 +54,13 @@ const PEOPLE_ROOT = "people/1";
 
     // resolve handles 200 status codes, reject handles 500.
 
-    let getLukeSkywalker = (URL_ROOT+PEOPLE_ROOT) => {
+    let url = URL_ROOT + PEOPLE_ROOT;
+    console.log(url);
+
+    let getLukeSkywalker = (url) => {
         return new Promise(
             (resolve, reject) => {
-                request.get(URL_ROOT+PEOPLE_ROOT, function(error, response, data){
+                request.get(url, function(error, response, data){
                     if (error) reject(error);
 
     let content = JSON.parse(data);
