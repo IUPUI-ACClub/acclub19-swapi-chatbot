@@ -7,7 +7,9 @@ const {dialogflow} = require('actions-on-google');
 
 const functions = require('firebase-functions');
 
-const swapi = require('swapi-node');
+const { dialogflow, BasicCard, SimpleResponse } = require('actions-on-google');
+
+//const swapi = require('swapi-node');
 
 const app = dialogflow({debug:true});
 
@@ -83,6 +85,7 @@ const PEOPLE_ROOT = "people/1";
 
     let Luke = "";
     Luke = getLukeSkywalker(url);
+    console.log("Luke variable set..." + Luke);
     conv.ask(new simpleResponse({
         speech: "This is a response " + Luke,
         text: "This is a response " + Luke,
