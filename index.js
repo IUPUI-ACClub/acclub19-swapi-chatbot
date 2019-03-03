@@ -11,13 +11,13 @@ const swapi = require('swapi-node');
 
 const app = dialogflow({debug:true});
 
-// const { Logging } = require('@google-cloud/logging');
+//const { Logging } = require('@google-cloud/logging');
 
 
 
 
 // SAMPLE INTENT HANDLER
- app.intent("test", async (conv) => {
+ app.intent("test", (conv) => {
      console.log("inside first test intent");
     //  let newVariable = "Luke Skywalker";
     //       conv.ask(newVariable);
@@ -27,11 +27,11 @@ const app = dialogflow({debug:true});
     // let Luke = "";
     // Luke = Luke.getPerson(1);
     
-     swapi.getPerson("https://swapi.co/api/people/?page=2").then((result) => {
-         console.log("inside swapi getter");
+    // code not being triggered
+     swapi.getPerson(1).then((result) => {
+         console.log('inside swapi promise call');
          console.log(result);
         conv.ask(result['name']);
-        return result;
      });
 
   // TO RETURN TO DIALOGFLOW AND CONTINUE THE CONVERSATION, USE conv.ask()
@@ -41,6 +41,23 @@ const app = dialogflow({debug:true});
     // conv.close(`Goodbye.`);
  });
 
-exports.generateStarWarsUniverse = functions.https.onRequest(app);
+ exports.generateStarWarsUniverse = functions.https.onRequest(app);
+ exports.returnSWAPIData = functions.https.onRequest((data, context) => {
+  return new Promise(function(resolve, reject) {
+    request({
+      url: URL,
+      method: "POST",
+      json: true,
+      body: queryJSON //A json variable I've built previously
+    }, function (error, response, body) {
+      if (error) {
+        reject(error);
+      } 
+      else {
+        resolve(body)
+      } 
+    });
+  });
+});
 
 
