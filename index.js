@@ -11,6 +11,9 @@ const swapi = require('swapi-node');
 
 const app = dialogflow({debug:true});
 
+const { Logging } = require('@google-cloud/logging');
+
+
 
 
 // SAMPLE INTENT HANDLER
@@ -36,5 +39,10 @@ const app = dialogflow({debug:true});
     // conv.close(`Goodbye.`);
  });
 
-exports.generateStarWarsUniverse = functions.https.onRequest(app);
-// exports.dialogflowFirebaseFulfillment = functions.https.onRequest(app);
+// exports.generateStarWarsUniverse = functions.https.onRequest(app);
+exports.generateStarWarsUniverse = (req, res) => {
+  console.log('I am a log entry!');
+  console.error('I am an error!');
+  res.end();
+};
+
