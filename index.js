@@ -28,7 +28,7 @@ let URL_ROOT = "https://swapi.co/api/";
     // resolve handles 200 status codes, reject handles 500.
 
         swapi.getPerson(1).then((result) => {
-            console.log(result);
+            console.log(result.name);
             if (result) {
                 resolve(result);
             }
