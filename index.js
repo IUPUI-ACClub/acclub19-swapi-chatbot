@@ -99,11 +99,11 @@ const PEOPLE_ROOT = "people/1";
                 // }))
     let Luke = "";
     Luke = getLukeSkywalker(url);
-    Luke = JSON.stringify(Luke);
-    console.log("Luke variable set..." + Luke);
+    console.log("Luke variable set..." + JSON.stringify(Luke)
+);
     conv.ask(new SimpleResponse({
-        speech: "This is a response " + Luke,
-        text: "This is a response " + Luke,
+        speech: "This is a response " + JSON.stringify(Luke),
+        text: "This is a response " + JSON.stringify(Luke),
     }))
 
     // conv.ask(Luke);
