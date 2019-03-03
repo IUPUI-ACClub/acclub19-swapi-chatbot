@@ -14,7 +14,7 @@ const app = dialogflow({debug:true});
 
 // SAMPLE INTENT HANDLER
  app.intent("test", (conv) => {
-     
+     console.log("inside first test intent");
     //  let newVariable = "Luke Skywalker";
     //       conv.ask(newVariable);
 
