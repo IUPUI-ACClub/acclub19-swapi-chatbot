@@ -70,10 +70,10 @@ const PEOPLE_ROOT = "people/1";
             let name = content.name;
             console.log(content);
             resolve(name);
-                });
+                })
             }
         );
-    }
+    };
 
     let Luke = "";
     Luke = getLukeSkywalker(url);
