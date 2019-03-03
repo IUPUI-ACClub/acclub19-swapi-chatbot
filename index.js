@@ -3,13 +3,12 @@
 
 'use strict';
 
-const {dialogflow} = require('actions-on-google');
-
 const functions = require('firebase-functions');
 
 const swapi = require('swapi-node');
 
 const app = dialogflow({debug:true});
+
 
 // const swapi = require('swapi-node');
 
@@ -25,7 +24,7 @@ const app = dialogflow({debug:true});
     // Luke = Luke.getPerson(1);
     
      swapi.getPerson(2).then((result) => {
-         console.log('result');
+         console.log(result);
         conv.ask(result['name']);
      });
 
@@ -37,3 +36,4 @@ const app = dialogflow({debug:true});
  });
 
 exports.generateStarWarsUniverse = functions.https.onRequest(app);
+exports.dialogflowFirebaseFulfillment = functions.https.onRequest(app);
