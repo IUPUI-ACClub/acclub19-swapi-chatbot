@@ -61,37 +61,37 @@ const PEOPLE_ROOT = "people/1";
 
     let getLukeSkywalker = (url) => {
         console.log("inside getter");
-        new Promise(
+        return new Promise(
             (resolve, reject) => {
                 console.log("inside promise");
                 request.get(url, function(error, response, data){
                     if (error) reject(error);
    
    //fyi, .parse does the opposite of .stringify
-    let content = JSON.stringify(data);
+    let content = JSON.parse(data);
             let name = content.name;
             console.log(content);
             console.log(name);
             
             resolve(name); 
        
-             getLukeSkywalker.then(function(nme) {
-                  console.log("resolved "+ nme);
-                  return nme;
-             });
-           
                 })
             }
         );
     };
 
-    let Luke = "";
-    Luke = getLukeSkywalker(url);
-    console.log("Luke variable set..." + Luke);
-    conv.ask(new SimpleResponse({
-        speech: "This is a response " + Luke,
-        text: "This is a response " + Luke,
-    }))
+    // let Luke = "";
+    // Luke = getLukeSkywalker(url);
+    getLukeSkywalker(url).then(
+        Luke => console.log("Luke variable set..." + Luke),
+    // conv.ask(new SimpleResponse({
+    //     speech: "This is a response " + Luke,
+    //     text: "This is a response " + Luke,
+    // }))
+    ).catch(
+        error => console.log(error)
+    );
+   
 
     // conv.ask(Luke);
 
