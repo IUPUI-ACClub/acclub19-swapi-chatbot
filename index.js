@@ -58,8 +58,10 @@ const PEOPLE_ROOT = "people/1";
     console.log(url);
 
     let getLukeSkywalker = (url) => {
+        console.log("inside getter");
         return new Promise(
             (resolve, reject) => {
+                console.log("inside promise");
                 request.get(url, function(error, response, data){
                     if (error) reject(error);
 
@@ -67,8 +69,8 @@ const PEOPLE_ROOT = "people/1";
             let name = content.name;
             console.log(content);
             conv.ask(name);
-            resolve(content);
-                })
+            resolve(name);
+                });
             }
         )
     }
