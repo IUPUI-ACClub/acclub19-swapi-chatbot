@@ -3,11 +3,9 @@
 // Init
 'use strict';
 
-const {dialogflow} = require('actions-on-google');
+const {dialogflow, BasicCard, SimpleResponse} = require('actions-on-google');
 
 const functions = require('firebase-functions');
-
-const { dialogflow, BasicCard, SimpleResponse } = require('actions-on-google');
 
 //const swapi = require('swapi-node');
 
@@ -86,7 +84,7 @@ const PEOPLE_ROOT = "people/1";
     let Luke = "";
     Luke = getLukeSkywalker(url);
     console.log("Luke variable set..." + Luke);
-    conv.ask(new simpleResponse({
+    conv.ask(new SimpleResponse({
         speech: "This is a response " + Luke,
         text: "This is a response " + Luke,
     }))
