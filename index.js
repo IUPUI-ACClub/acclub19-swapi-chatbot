@@ -73,8 +73,8 @@ const PEOPLE_ROOT = "people/1";
             console.log(content);
             console.log(name);
             
-            resolve(response => {
-                Luke = result.key;
+            resolve(name => {
+                var answer = result.key;
             });
 
             //  getLukeSkywalker.then(function(nme) {
