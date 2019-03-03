@@ -62,7 +62,8 @@ const PEOPLE_ROOT = "people/1";
 
     let getLukeSkywalker = (url) => {
         console.log("inside getter");
-        return new Promise(
+        let promise = new Promise
+        return promise(
             (resolve, reject) => {
                 console.log("inside promise");
                 request.get(url, function(error, response, data){
@@ -74,27 +75,28 @@ const PEOPLE_ROOT = "people/1";
             console.log(content);
             console.log(name);
             
-            resolve(result => {
-                  console.log("inside resolve method");
-                let answer = result.key;
-                // answer = JSON.stringify(answer);
-                console.log("inside resolve method");
-                //   conv.ask(new SimpleResponse({
-                //     speech: "This is a response " + answer,
-                //     text: "This is a response " + answer,
-                // }))
-            });
+            resolve(name);
+            
+            
 
-            //  getLukeSkywalker.then(function(nme) {
-            //       console.log("resolved "+ nme);
-            //       return nme;
-            //  });
+             promise.then(function(nme) {
+                  console.log("resolved "+ nme);
+                  return nme;
+             });
            
                 })
             }
         );
     };
 
+// old resolve code
+    // let answer = result.key;
+                // answer = JSON.stringify(answer);
+                // console.log("inside resolve method");
+                //   conv.ask(new SimpleResponse({
+                //     speech: "This is a response " + answer,
+                //     text: "This is a response " + answer,
+                // }))
     let Luke = "";
     Luke = getLukeSkywalker(url);
     console.log("Luke variable set..." + Luke);
