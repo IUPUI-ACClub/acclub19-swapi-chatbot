@@ -68,16 +68,17 @@ const PEOPLE_ROOT = "people/1";
                 request.get(url, function(error, response, data){
                     if (error) reject(error);
    
-    let content = JSON.parse(data);
+    let content = JSON.stringify(data);
             let name = content.name;
             console.log(content);
             console.log(name);
             
             resolve(result => {
-                var answer = result.name;
+                value = result.key;
+                console.log("inside resolve method");
                   conv.ask(new SimpleResponse({
-                    speech: "This is a response " + answer,
-                    text: "This is a response " + answer,
+                    speech: "This is a response " + value,
+                    text: "This is a response " + value,
                 }))
             });
 
