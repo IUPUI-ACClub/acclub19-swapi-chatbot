@@ -64,7 +64,7 @@ const PEOPLE_ROOT = "people/1";
         return new Promise(
             (resolve, reject) => {
                 console.log("inside promise");
-                //failhere
+                //failhere maybe?
                 request.get(url, function(error, response, data){
                     if (error) reject(error);
 
@@ -88,6 +88,8 @@ const PEOPLE_ROOT = "people/1";
 
     getLukeSkywalker(url).then((luke) => {
       console.log("Luke variable set..." + luke);
+
+      //break here?  data is in console.log above
       conv.ask(new SimpleResponse({
           speech: "This is a response " + luke,
           text: "This is a response " + luke,
