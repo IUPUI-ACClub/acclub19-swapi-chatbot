@@ -13,6 +13,8 @@ const app = dialogflow({debug:true});
 
 let request = require('request');
 
+// ROOTS that reference swapi
+
 const URL_ROOT = "https://swapi.co/api/";
 
 const PEOPLE_ROOT = "people/1";
@@ -81,7 +83,10 @@ const PEOPLE_ROOT = "people/1";
 
     let Luke = "";
     Luke = getLukeSkywalker(url);
-    conv.ask(Luke);
+    conv.ask(new simpleResponse({
+        speech: "This is a response " + Luke,
+        text: "This is a response " + Luke,
+    }))
 
     //conv.ask(Luke);
 
