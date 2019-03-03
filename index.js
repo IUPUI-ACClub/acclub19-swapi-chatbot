@@ -61,50 +61,58 @@ var answer = "";
    
     console.log(url);
 
-    let getLukeSkywalker = (url) => {
-        console.log("inside getter");
-        return new Promise(
-            (url, resolve, reject) => {
-                request.get(url, function(statusCode, data){
-                    if (statusCode == 200) 
+    var jsonURL = URL_ROOT + PEOPLE_ROOT;
+
+get(jsonURL).then(function(response, data) {
+  console.log("Success!" + " " +JSON.parse(response) + " " + JSON.parse(data));
+}, function(error) {
+  console.log("Failed!", error);
+});
+
+    // let getLukeSkywalker = (url) => {
+    //     console.log("inside getter");
+    //     return new Promise(
+    //         (url, resolve, reject) => {
+    //             request.get(url, function(statusCode, data){
+    //                 if (statusCode == 200) 
    
    //fyi, .parse does the opposite of .stringify
-    let content = JSON.parse(data);
-            let name = content.name;
-            console.log(content);
-            console.log(name);
+    // let content = JSON.parse(data);
+    //         let name = content.name;
+    //         console.log(content);
+    //         console.log(name);
             
-            resolve(result => {
-                  console.log("inside resolve method");
-                  answer = JSON.stringify(result.name);
+            // resolve(name => {
+            //       console.log("inside resolve method");
+            //       answer = JSON.stringify(name);
                 // answer = JSON.stringify(answer);
                 //   conv.ask(new SimpleResponse({
                 //     speech: "This is a response " + answer,
                 //     text: "This is a response " + answer,
                 // }))
-            });
+            // });
 
             //  getLukeSkywalker.then(function(nme) {
             //       console.log("resolved "+ nme);
             //       return nme;
             //  });
            
-                })
-            }
-        );
-    };
+    //             })
+    //         }
+    //     );
+    // };
 
-    let Luke = "";
-    Luke = getLukeSkywalker(url);
-    console.log("Luke variable set..." + answer);
-    conv.ask(new SimpleResponse({
-        speech: "This is a response " + answer,
-        text: "This is a response " + answer,
-    }))
+    // let Luke = "";
+    // Luke = getLukeSkywalker(url);
+    // console.log("variable set...?" + answer);
+    // conv.ask(new SimpleResponse({
+    //     speech: "This is a response " + answer,
+    //     text: "This is a response " + answer,
+    // }))
 
     // conv.ask(Luke);
 
-});
+}); //end app.intent()
 
   // TO RETURN TO DIALOGFLOW AND CONTINUE THE CONVERSATION, USE conv.ask()
     // conv.ask(`Let's chat some more.`);
