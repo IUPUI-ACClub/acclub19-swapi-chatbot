@@ -54,7 +54,7 @@ const PEOPLE_ROOT = "people/1";
 
     // A function that returns a promise to resolve into the data fetched from API
 
-    // resolve handles 200 status codes, reject handles 500.
+    // resolve/.then handles 200 status codes, reject handles 500.
 
     let url = URL_ROOT + PEOPLE_ROOT;
    
@@ -73,12 +73,14 @@ const PEOPLE_ROOT = "people/1";
             console.log(content);
             console.log(name);
             
-            resolve(name);
+            resolve(name => {
+                var answer = result.key;
+            });
 
-             getLukeSkywalker.then(function(nme) {
-                  console.log("resolved "+ nme);
-                  return nme;
-             });
+            //  getLukeSkywalker.then(function(nme) {
+            //       console.log("resolved "+ nme);
+            //       return nme;
+            //  });
            
                 })
             }
