@@ -68,28 +68,39 @@ const PEOPLE_ROOT = "people/1";
                     if (error) reject(error);
    
    //fyi, .parse does the opposite of .stringify
-    let content = JSON.parse(data);
+    let content = JSON.stringify(data);
             let name = content.name;
             console.log(content);
             console.log(name);
             
-            resolve(name); 
-       
+            resolve(result => {
+                  console.log("inside resolve method");
+                let answer = result.key;
+                // answer = JSON.stringify(answer);
+                console.log("inside resolve method");
+                //   conv.ask(new SimpleResponse({
+                //     speech: "This is a response " + answer,
+                //     text: "This is a response " + answer,
+                // }))
+            });
+
+            //  getLukeSkywalker.then(function(nme) {
+            //       console.log("resolved "+ nme);
+            //       return nme;
+            //  });
+           
                 })
             }
         );
     };
 
-    // let Luke = "";
-    // Luke = getLukeSkywalker(url);
-    getLukeSkywalker(url).then(
-        Luke => console.log("Luke variable set..." + Luke),
-    // conv.ask(new SimpleResponse({
-    //     speech: "This is a response " + Luke,
-    //     text: "This is a response " + Luke,
-    // }))
-    )
-   
+    let Luke = "";
+    Luke = getLukeSkywalker(url);
+    console.log("Luke variable set..." + Luke);
+    conv.ask(new SimpleResponse({
+        speech: "This is a response " + Luke,
+        text: "This is a response " + Luke,
+    }))
 
     // conv.ask(Luke);
 
@@ -103,23 +114,3 @@ const PEOPLE_ROOT = "people/1";
  
 
  exports.generateStarWarsUniverse = functions.https.onRequest(app);
-
-//  exports.retrieveSWAPIData = functions.https.onRequest((data, context) => {
-//   return new Promise(function(resolve, reject) {
-//     request({
-//       url: BASE_URL,
-//       method: "POST",
-//       json: true,
-//       body: queryJSON //A json variable I've built previously
-//     }, function (error, response, body) {
-//       if (error) {
-//         reject(error);
-//       } 
-//       else {
-//         resolve(body)
-//       } 
-//     });
-//   });
-// });
-
-
