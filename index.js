@@ -1,4 +1,3 @@
-
 // STARTER CODE FOR A CLOUD FUNCTION THAT IS THE FULFILLMENT FOR AN ACTION ON GOOGLE
 // Init
 'use strict';
@@ -62,7 +61,7 @@ const PEOPLE_ROOT = "people/1";
 
     let getLukeSkywalker = (url) => {
         console.log("inside getter");
-        return new Promise();(
+        return new Promise(
             (resolve, reject) => {
                 console.log("inside promise");
                 request.get(url, function(error, response, data){
@@ -74,32 +73,30 @@ const PEOPLE_ROOT = "people/1";
             console.log(content);
             console.log(name);
             
-            resolve(name);
-            
-            
+            resolve(result => {
+                  console.log("inside resolve method");
+                let answer = result.key;
+                // answer = JSON.stringify(answer);
+                console.log("inside resolve method");
+                //   conv.ask(new SimpleResponse({
+                //     speech: "This is a response " + answer,
+                //     text: "This is a response " + answer,
+                // }))
+            });
 
-             getLukeSkywalker.then(function(nme) {
-                  console.log("resolved "+ nme);
-                  return nme;
-             });
+            //  getLukeSkywalker.then(function(nme) {
+            //       console.log("resolved "+ nme);
+            //       return nme;
+            //  });
            
                 })
             }
         );
     };
 
-// old resolve code
-    // let answer = result.key;
-                // answer = JSON.stringify(answer);
-                // console.log("inside resolve method");
-                //   conv.ask(new SimpleResponse({
-                //     speech: "This is a response " + answer,
-                //     text: "This is a response " + answer,
-                // }))
     let Luke = "";
     Luke = getLukeSkywalker(url);
     console.log("Luke variable set..." + Luke);
-
     conv.ask(new SimpleResponse({
         speech: "This is a response " + Luke,
         text: "This is a response " + Luke,
