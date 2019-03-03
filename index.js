@@ -80,7 +80,7 @@ const PEOPLE_ROOT = "people/1";
                 //   conv.ask(new SimpleResponse({
                 //     speech: "This is a response " + value,
                 //     text: "This is a response " + value,
-                }))
+                // }))
             });
 
             //  getLukeSkywalker.then(function(nme) {
