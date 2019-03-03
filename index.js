@@ -55,6 +55,8 @@ const PEOPLE_ROOT = "people/1";
     // resolve handles 200 status codes, reject handles 500.
 
     let url = URL_ROOT + PEOPLE_ROOT;
+    let Luke = "";
+    Luke = Luke.getLukeSkywalker(url);
     console.log(url);
 
     let getLukeSkywalker = (url) => {
@@ -68,12 +70,13 @@ const PEOPLE_ROOT = "people/1";
     let content = JSON.parse(data);
             let name = content.name;
             console.log(content);
-            conv.ask(name);
             resolve(name);
                 });
             }
-        )
+        );
     }
+
+    conv.ask(Luke);
 
 });
 
