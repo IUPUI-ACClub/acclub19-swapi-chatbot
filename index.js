@@ -25,6 +25,7 @@ const app = dialogflow({debug:true});
     // Luke = Luke.getPerson(1);
     
      swapi.getPerson(2).then((result) => {
+         console.log('result');
         conv.ask(result['name']);
      });
 
