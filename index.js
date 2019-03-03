@@ -68,6 +68,7 @@ const PEOPLE_ROOT = "people/1";
                 request.get(url, function(error, response, data){
                     if (error) reject(error);
    
+   //fyi, .parse does the opposite of .stringify
     let content = JSON.stringify(data);
             let name = content.name;
             console.log(content);
@@ -76,9 +77,9 @@ const PEOPLE_ROOT = "people/1";
             resolve(result => {
                 value = result.key;
                 console.log("inside resolve method");
-                  conv.ask(new SimpleResponse({
-                    speech: "This is a response " + value,
-                    text: "This is a response " + value,
+                //   conv.ask(new SimpleResponse({
+                //     speech: "This is a response " + value,
+                //     text: "This is a response " + value,
                 }))
             });
 
@@ -92,15 +93,15 @@ const PEOPLE_ROOT = "people/1";
         );
     };
 
-    // let Luke = "";
-    // Luke = getLukeSkywalker(url);
-    // console.log("Luke variable set..." + Luke);
-    // conv.ask(new SimpleResponse({
-    //     speech: "This is a response " + Luke,
-    //     text: "This is a response " + Luke,
-    // }))
+    let Luke = "";
+    Luke = getLukeSkywalker(url);
+    console.log("Luke variable set..." + Luke);
+    conv.ask(new SimpleResponse({
+        speech: "This is a response " + Luke,
+        text: "This is a response " + Luke,
+    }))
 
-    //conv.ask(Luke);
+    conv.ask(Luke);
 
 });
 
