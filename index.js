@@ -16,17 +16,17 @@ const app = dialogflow({debug:true});
 // SAMPLE INTENT HANDLER
  app.intent("test", (conv) => {
      
-     let newVariable = "Luke Skywalker";
-          conv.ask(newVariable);
+    //  let newVariable = "Luke Skywalker";
+    //       conv.ask(newVariable);
 
   // LOGIC FOR THIS INTENT GOES HERE:
 
     // let Luke = "";
     // Luke = Luke.getPerson(1);
     
-    // swapi.getPerson(1).then((result) => {
-    // return result;
-//     });
+     swapi.getPerson(1).then((result) => {
+        conv.ask(result);
+     });
 
   // TO RETURN TO DIALOGFLOW AND CONTINUE THE CONVERSATION, USE conv.ask()
     // conv.ask(`Let's chat some more.`);
