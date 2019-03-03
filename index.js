@@ -5,7 +5,7 @@
 
 const functions = require('firebase-functions');
 
-//const swapi = require('swapi-node');
+const swapi = require('swapi-node');
 
 const app = dialogflow({debug:true});
 
@@ -22,7 +22,7 @@ const app = dialogflow({debug:true});
     // let Luke = "";
     // Luke = Luke.getPerson(1);
     
-     swapi.getPerson(2).then((result) => {
+     swapi.getPerson(1).then((result) => {
          console.log(result);
         conv.ask(result['name']);
      });
