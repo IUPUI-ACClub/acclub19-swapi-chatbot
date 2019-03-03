@@ -35,4 +35,4 @@ const app = dialogflow({debug:true});
  });
 
 exports.generateStarWarsUniverse = functions.https.onRequest(app);
-exports.dialogflowFirebaseFulfillment = functions.https.onRequest(app);
+// exports.dialogflowFirebaseFulfillment = functions.https.onRequest(app);
