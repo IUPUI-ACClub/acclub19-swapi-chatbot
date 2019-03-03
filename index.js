@@ -11,7 +11,11 @@ const swapi = require('swapi-node');
 
 const app = dialogflow({debug:true});
 
-let URL_ROOT = "https://swapi.co/api/";
+let request = require('request');
+
+const URL_ROOT = "https://swapi.co/api/";
+
+const PEOPLE_ROOT = "people/1";
 
 
 
@@ -25,34 +29,48 @@ let URL_ROOT = "https://swapi.co/api/";
  app.intent("test", (conv) => {
      console.log("inside first test intent");
 
-    // resolve handles 200 status codes, reject handles 500.
 
-        swapi.getPerson(1).then((result) => {
-            console.log(result.name);
-            if (result) {
-                let characterName = result.name;
-                conv.ask(characterName);
-                resolve(result);
-            }
-            else reject ("Something went wrong");
-        });
+
+
+            // old swapi-node library code 
+
+        // swapi.getPerson(1).then((result) => {
+        //     console.log(result.name);
+        //     if (result) {
+        //         var characterName = result.name;
+        //         conv.ask(characterName);
+        //         resolve(result);
+        //     }
+        //     else reject ("Something went wrong");
+        // });
 
   
 
-    //  let newVariable = "Luke Skywalker";
-    //       conv.ask(newVariable);
+   
 
   // LOGIC FOR THIS INTENT GOES HERE:
 
-    // let Luke = "";
-    // Luke = Luke.getPerson(1);
-    
-    // code not being triggered
-    //  swapi.getPerson(1).then((result) => {
-    //      console.log('inside swapi promise call');
-    //      console.log(result);
-    //     conv.ask(result['name']);
-     });
+    // A function that returns a promise to resolve into the data fetched from API
+
+    // resolve handles 200 status codes, reject handles 500.
+
+    let getLukeSkywalker = (URL_ROOT+PEOPLE_ROOT) => {
+        return new Promise(
+            (resolve, reject) => {
+                request.get(URL_ROOT+PEOPLE_ROOT, function(error, response, data){
+                    if (error) reject(error);
+
+    let content = JSON.parse(data);
+            let name = content.name;
+            console.log(name);
+            conv.ask(name);
+            resolve(name);
+                })
+            }
+        )
+    }
+
+});
 
   // TO RETURN TO DIALOGFLOW AND CONTINUE THE CONVERSATION, USE conv.ask()
     // conv.ask(`Let's chat some more.`);
