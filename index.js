@@ -18,6 +18,8 @@ const URL_ROOT = "https://swapi.co/api/";
 
 const PEOPLE_ROOT = "people/1";
 
+var answer = "";
+
 
 
 
@@ -75,7 +77,7 @@ const PEOPLE_ROOT = "people/1";
             
             resolve(result => {
                   console.log("inside resolve method");
-                let answer = result.key;
+                  answer = result.name;
                 // answer = JSON.stringify(answer);
                 console.log("inside resolve method");
                 //   conv.ask(new SimpleResponse({
@@ -96,10 +98,10 @@ const PEOPLE_ROOT = "people/1";
 
     let Luke = "";
     Luke = getLukeSkywalker(url);
-    console.log("Luke variable set..." + Luke);
+    console.log("Luke variable set..." + answer);
     conv.ask(new SimpleResponse({
-        speech: "This is a response " + Luke,
-        text: "This is a response " + Luke,
+        speech: "This is a response " + answer,
+        text: "This is a response " + answer,
     }))
 
     // conv.ask(Luke);
