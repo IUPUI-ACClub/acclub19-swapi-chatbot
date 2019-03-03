@@ -72,6 +72,7 @@ const PEOPLE_ROOT = "people/1";
             console.log(name);
             
             resolve(name);
+            console.log("resolved "+ name);
             return name;
                 })
             }
