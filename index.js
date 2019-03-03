@@ -5,12 +5,11 @@
 
 const functions = require('firebase-functions');
 
-const swapi = require('swapi-node');
+//const swapi = require('swapi-node');
 
 const app = dialogflow({debug:true});
 
 
-// const swapi = require('swapi-node');
 
 // SAMPLE INTENT HANDLER
  app.intent("test", (conv) => {
