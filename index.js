@@ -68,7 +68,7 @@ const PEOPLE_ROOT = "people/1";
                     if (error) reject(error);
    
    //fyi, .parse does the opposite of .stringify
-    let content = JSON.stringify(data);
+    let content = JSON.parse(data);
             let name = content.name;
             console.log(content);
             console.log(name);
