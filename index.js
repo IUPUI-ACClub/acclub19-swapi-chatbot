@@ -30,6 +30,7 @@ const app = dialogflow({debug:true});
      swapi.getPerson(1).then((result) => {
          console.log(result);
         conv.ask(result['name']);
+        return result;
      });
 
   // TO RETURN TO DIALOGFLOW AND CONTINUE THE CONVERSATION, USE conv.ask()
