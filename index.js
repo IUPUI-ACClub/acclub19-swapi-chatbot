@@ -69,6 +69,9 @@ const PEOPLE_ROOT = "people/1";
     let content = JSON.parse(data);
             let name = content.name;
             console.log(content);
+            console.log(name);
+            conv.ask(name);
+
             resolve(name);
                 })
             }
@@ -77,7 +80,7 @@ const PEOPLE_ROOT = "people/1";
 
     let Luke = "";
     Luke = getLukeSkywalker(url);
-    conv.ask(Luke);
+    //conv.ask(Luke);
 
 });
 
