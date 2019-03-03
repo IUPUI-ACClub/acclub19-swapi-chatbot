@@ -67,7 +67,7 @@ const PEOPLE_ROOT = "people/1";
             let name = content.name;
             console.log(name);
             conv.ask(name);
-            resolve(name);
+            resolve(content);
                 })
             }
         )
