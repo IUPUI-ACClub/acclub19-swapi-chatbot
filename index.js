@@ -11,7 +11,7 @@ const swapi = require('swapi-node');
 
 const app = dialogflow({debug:true});
 
-const { Logging } = require('@google-cloud/logging');
+// const { Logging } = require('@google-cloud/logging');
 
 
 
