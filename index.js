@@ -54,7 +54,7 @@ const PEOPLE_ROOT = "people/1";
 
     // A function that returns a promise to resolve into the data fetched from API
 
-    // resolve/.then handles 200 status codes, reject handles 500.
+    // resolve with .then handles 200 status codes, reject handles 500.
 
     let url = URL_ROOT + PEOPLE_ROOT;
    
