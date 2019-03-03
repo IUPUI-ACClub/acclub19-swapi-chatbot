@@ -66,43 +66,32 @@ const PEOPLE_ROOT = "people/1";
                 console.log("inside promise");
                 request.get(url, function(error, response, data){
                     if (error) reject(error);
-   
-   //fyi, .parse does the opposite of .stringify
-    let content = JSON.stringify(data);
-            let name = content["name"];
-            console.log(content);
-            console.log(name);
-            
-            resolve(result => {
-                  console.log("inside resolve method");
-                let answer = result["name"];
-                // answer = JSON.stringify(answer);
-                console.log("inside resolve method");
-                //   conv.ask(new SimpleResponse({
-                //     speech: "This is a response " + answer,
-                //     text: "This is a response " + answer,
-                // }))
-            });
 
-            //  getLukeSkywalker.then(function(nme) {
-            //       console.log("resolved "+ nme);
-            //       return nme;
-            //  });
-           
-                })
-            }
-        );
-    };
+                   //fyi, .parse does the opposite of .stringify
+                    let content = JSON.parse(data);
+                    let name = content["name"];
+                    console.log(content);
+                    console.log(name);
 
-    let Luke = "";
-    Luke = getLukeSkywalker(url);
-    console.log("Luke variable set..." + Luke);
-    conv.ask(new SimpleResponse({
-        speech: "This is a response " + Luke,
-        text: "This is a response " + Luke,
-    }))
+                    resolve(name);
 
-    // conv.ask(Luke);
+                    //  getLukeSkywalker.then(function(nme) {
+                    //       console.log("resolved "+ nme);
+                    //       return nme;
+                    //  });
+
+                        })
+                    }
+                );
+            };
+
+    getLukeSkywalker(url).then((luke) => {
+      console.log("Luke variable set..." + luke);
+      conv.ask(new SimpleResponse({
+          speech: "This is a response " + luke,
+          text: "This is a response " + luke,
+      }))
+    })
 
 });
 
