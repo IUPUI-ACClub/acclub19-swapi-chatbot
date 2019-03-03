@@ -64,7 +64,10 @@ var answer = "";
     var jsonURL = URL_ROOT + PEOPLE_ROOT;
 
 get(jsonURL).then(function(response, data) {
-  console.log("Success!" + " " +JSON.parse(response) + " " + JSON.parse(data));
+    console.log("Success!");
+    console.log(JSON.parse(response));
+    console.log(JSON.parse(data));
+
 }, function(error) {
   console.log("Failed!", error);
 });
