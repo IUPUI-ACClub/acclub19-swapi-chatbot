@@ -17,8 +17,8 @@ const app = dialogflow({debug:true});
 
 
 // SAMPLE INTENT HANDLER
- // app.intent("test", (conv) => {
-    // console.log("inside first test intent");
+ app.intent("test", async (conv) => {
+     console.log("inside first test intent");
     //  let newVariable = "Luke Skywalker";
     //       conv.ask(newVariable);
 
@@ -28,13 +28,10 @@ const app = dialogflow({debug:true});
     // Luke = Luke.getPerson(1);
     
      swapi.getPerson("https://swapi.co/api/people/?page=2").then((result) => {
-         app.intent("test", (conv) => {
-            console.log("inside swapi getter");
-            console.log(result);
-            conv.ask(result['name']);
-            return result;
-         });
-       
+         console.log("inside swapi getter");
+         console.log(result);
+        conv.ask(result['name']);
+        return result;
      });
 
   // TO RETURN TO DIALOGFLOW AND CONTINUE THE CONVERSATION, USE conv.ask()
@@ -42,7 +39,7 @@ const app = dialogflow({debug:true});
 
   // TO RETURN TO DIALOGFLOW AND END THE CONVERSATION, USE conv.close()
     // conv.close(`Goodbye.`);
-// });
+ });
 
 exports.generateStarWarsUniverse = functions.https.onRequest(app);
 
