@@ -65,7 +65,7 @@ const PEOPLE_ROOT = "people/1";
 
     let content = JSON.parse(data);
             let name = content.name;
-            console.log(name);
+            console.log(content);
             conv.ask(name);
             resolve(content);
                 })
