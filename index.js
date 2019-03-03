@@ -74,7 +74,7 @@ const PEOPLE_ROOT = "people/1";
             console.log(name);
             
             resolve(result => {
-                var answer = result.key;
+                var answer = result.name;
                   conv.ask(new SimpleResponse({
                     speech: "This is a response " + answer,
                     text: "This is a response " + answer,
