@@ -3,6 +3,8 @@
 
 'use strict';
 
+const {dialogflow} = require('actions-on-google');
+
 const functions = require('firebase-functions');
 
 const swapi = require('swapi-node');
