@@ -31,6 +31,7 @@ let URL_ROOT = "https://swapi.co/api/";
             console.log(result.name);
             if (result) {
                 resolve(result);
+                conv.ask(result.name);
             }
             else reject ("Something went wrong");
         });
