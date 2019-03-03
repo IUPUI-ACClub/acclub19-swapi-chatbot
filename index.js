@@ -64,10 +64,9 @@ var answer = "";
     let getLukeSkywalker = (url) => {
         console.log("inside getter");
         return new Promise(
-            (resolve, reject) => {
-                console.log("inside promise");
-                request.get(url, function(error, response, data){
-                    if (error) reject(error);
+            (url, resolve, reject) => {
+                request.get(url, function(statusCode, data){
+                    if (statusCode == 200) 
    
    //fyi, .parse does the opposite of .stringify
     let content = JSON.parse(data);
@@ -77,9 +76,8 @@ var answer = "";
             
             resolve(result => {
                   console.log("inside resolve method");
-                  answer = result.name;
+                  answer = JSON.stringify(result.name);
                 // answer = JSON.stringify(answer);
-                console.log("inside resolve method");
                 //   conv.ask(new SimpleResponse({
                 //     speech: "This is a response " + answer,
                 //     text: "This is a response " + answer,
