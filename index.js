@@ -28,6 +28,7 @@ const app = dialogflow({debug:true});
     // Luke = Luke.getPerson(1);
     
      swapi.getPerson("https://swapi.co/api/people/?page=2").then((result) => {
+         console.log("inside swapi getter");
          console.log(result);
         conv.ask(result['name']);
         return result;
