@@ -25,13 +25,18 @@ let URL_ROOT = "https://swapi.co/api/";
  app.intent("test", (conv) => {
      console.log("inside first test intent");
 
-     var p = new Promise(function(resolve,reject) {
-    
-swapi.getPerson(1).then((result) => {
-    console.log(result);
-});
+    // resolve handles 200 status codes, reject handles 500.
+        
+        swapi.getPerson(1).then((result) => {
+            console.log(result);
+            if (result) {
+                resolve(result);
+            }
+            else reject ("Something went wrong");
+        });
 
-});
+    });
+
     //  let newVariable = "Luke Skywalker";
     //       conv.ask(newVariable);
 
@@ -41,10 +46,10 @@ swapi.getPerson(1).then((result) => {
     // Luke = Luke.getPerson(1);
     
     // code not being triggered
-     swapi.getPerson(1).then((result) => {
-         console.log('inside swapi promise call');
-         console.log(result);
-        conv.ask(result['name']);
+    //  swapi.getPerson(1).then((result) => {
+    //      console.log('inside swapi promise call');
+    //      console.log(result);
+    //     conv.ask(result['name']);
      });
 
   // TO RETURN TO DIALOGFLOW AND CONTINUE THE CONVERSATION, USE conv.ask()
