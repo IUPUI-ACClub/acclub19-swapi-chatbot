@@ -30,8 +30,8 @@ let URL_ROOT = "https://swapi.co/api/";
         swapi.getPerson(1).then((result) => {
             console.log(result.name);
             if (result) {
-                //resolve(result);
                 conv.ask(result.name);
+                resolve(result);
             }
             else reject ("Something went wrong");
         });
