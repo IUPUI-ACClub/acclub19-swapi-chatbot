@@ -76,11 +76,12 @@ const PEOPLE_ROOT = "people/1";
             
             resolve(result => {
                 let answer = result.key;
+                let answer = JSON.stringify(answer);
                 console.log("inside resolve method");
-                //   conv.ask(new SimpleResponse({
-                //     speech: "This is a response " + value,
-                //     text: "This is a response " + value,
-                // }))
+                  conv.ask(new SimpleResponse({
+                    speech: "This is a response " + answer,
+                    text: "This is a response " + answer,
+                }))
             });
 
             //  getLukeSkywalker.then(function(nme) {
