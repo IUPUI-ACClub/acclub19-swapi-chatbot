@@ -75,6 +75,10 @@ const PEOPLE_ROOT = "people/1";
             
             resolve(result => {
                 var answer = result.key;
+                  conv.ask(new SimpleResponse({
+                    speech: "This is a response " + answer,
+                    text: "This is a response " + answer,
+                }))
             });
 
             //  getLukeSkywalker.then(function(nme) {
@@ -87,13 +91,13 @@ const PEOPLE_ROOT = "people/1";
         );
     };
 
-    let Luke = "";
-    Luke = getLukeSkywalker(url);
-    console.log("Luke variable set..." + Luke);
-    conv.ask(new SimpleResponse({
-        speech: "This is a response " + Luke,
-        text: "This is a response " + Luke,
-    }))
+    // let Luke = "";
+    // Luke = getLukeSkywalker(url);
+    // console.log("Luke variable set..." + Luke);
+    // conv.ask(new SimpleResponse({
+    //     speech: "This is a response " + Luke,
+    //     text: "This is a response " + Luke,
+    // }))
 
     //conv.ask(Luke);
 
