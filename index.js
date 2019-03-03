@@ -69,13 +69,13 @@ const PEOPLE_ROOT = "people/1";
    
    //fyi, .parse does the opposite of .stringify
     let content = JSON.stringify(data);
-            let name = content.name;
+            let name = content["name"];
             console.log(content);
             console.log(name);
             
             resolve(result => {
                   console.log("inside resolve method");
-                let answer = result.key;
+                let answer = result["name"];
                 // answer = JSON.stringify(answer);
                 console.log("inside resolve method");
                 //   conv.ask(new SimpleResponse({
