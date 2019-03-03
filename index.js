@@ -25,7 +25,7 @@ const app = dialogflow({debug:true});
     // Luke = Luke.getPerson(1);
     
      swapi.getPerson(2).then((result) => {
-        conv.ask(result);
+        conv.ask(result['name']);
      });
 
   // TO RETURN TO DIALOGFLOW AND CONTINUE THE CONVERSATION, USE conv.ask()
