@@ -39,10 +39,6 @@ const app = dialogflow({debug:true});
     // conv.close(`Goodbye.`);
  });
 
-// exports.generateStarWarsUniverse = functions.https.onRequest(app);
-exports.generateStarWarsUniverse = (req, res) => {
-  console.log('I am a log entry!');
-  console.error('I am an error!');
-  res.end();
-};
+exports.generateStarWarsUniverse = functions.https.onRequest(app);
+
 
