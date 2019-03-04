@@ -16,7 +16,7 @@ let request = require('request');
 
 const URL_ROOT = "https://swapi.co/api/";
 
-const FILMS_ROOT = "https://swapi.co/api/films";
+const FILMS_ROOT = "https://swapi.co/api/films/1";
 
 
 
@@ -82,17 +82,18 @@ const LUKE_ROOT = "people/1";
                     if (error) reject(error);
                    // .parse does the opposite of .stringify
                     let content = JSON.parse(data);
-                    let film = content.results.title
+                    let title = content.title;
+                    let director = content.director
                     console.log(content);
-                    console.log(film);
-                    resolve(film);
+                    console.log(title);
+                    resolve(title);
                         })
                     }
                 );
             };
     // google function thinks everything is done and want decipher promise unless you use return here
    return getFilms(url).then((param) => {
-      console.log("Luke variable set..." + param);
+      console.log("title set "+ param);
       conv.ask(new SimpleResponse({
           speech: param,
           text: param,
