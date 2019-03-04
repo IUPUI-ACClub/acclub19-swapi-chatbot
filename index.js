@@ -35,7 +35,7 @@ const LUKE_ROOT = "people/1";
 // SAMPLE INTENT HANDLER
  app.intent("test", (conv) => {
      console.log("inside first test intent");
-    let url = URL_ROOT + PEOPLE_ROOT;
+    let url = URL_ROOT + LUKE_ROOT;
    
     console.log(url);
 
