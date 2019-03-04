@@ -78,7 +78,7 @@ const LUKE_ROOT = "people/1";
         return new Promise(
             (resolve, reject) => {
                 console.log("inside promise");
-                //failhere maybe?
+                
                 request.get(url, function(error, response, data){
                     if (error) reject(error);
 
@@ -88,27 +88,24 @@ const LUKE_ROOT = "people/1";
                     let newHope = content.results.title
                     //let name = content["name"];
                     console.log(content);
-                    console.log(name);
+                    console.log(films.newHope);
 
                     resolve(newHope);
 
-                    //  getLukeSkywalker.then(function(nme) {
-                    //       console.log("resolved "+ nme);
-                    //       return nme;
-                    //  });
+
+                 
 
                         })
                     }
                 );
             };
     // google function thinks everything is done and want decipher promise unless you use return here
-   return getLukeSkywalker(url).then((fil) => {
-      console.log("Luke variable set..." + fil);
+   return getFilms(url).then((fil) => {
+      console.log("New Hope variable set." + fil);
 
-      //break here?  data is in console.log above
       conv.ask(new SimpleResponse({
-          speech: "This is a response " + fil,
-          text: "This is a response " + fil,
+          speech: fil,
+          text:  fil,
       }))
     })
 
