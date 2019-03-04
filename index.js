@@ -67,6 +67,11 @@ const LUKE_ROOT = "people/1";
     // A function that returns a promise to resolve into the data fetched from API
 
     // resolve with .then handles 200 status codes, reject handles 500.
+
+
+
+
+    // RETURN FILMS INTENT 
  app.intent("userRequestsFilms", (conv) => {
      console.log("inside first test intent");
     let url = URL_ROOT + FILMS_ROOT;
@@ -78,7 +83,7 @@ const LUKE_ROOT = "people/1";
         return new Promise(
             (resolve, reject) => {
                 console.log("inside promise");
-                
+
                 request.get(url, function(error, response, data){
                     if (error) reject(error);
 
@@ -95,7 +100,7 @@ const LUKE_ROOT = "people/1";
 
                  
 
-                        })
+                        });
                     }
                 );
             };
@@ -106,12 +111,12 @@ const LUKE_ROOT = "people/1";
       conv.ask(new SimpleResponse({
           speech: fil,
           text:  fil,
-      }))
-    })
+      }));
+    });
 
 });
 
-// RETURN FILM INTENT 
+// RETURN LUKE INTENT 
 
     let url = URL_ROOT + LUKE_ROOT;
    
