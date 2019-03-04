@@ -16,7 +16,7 @@ let request = require('request');
 
 const URL_ROOT = "https://swapi.co/api/";
 
-const FILMS_ROOT = "https://swapi.co/api/films/1";
+const FILMS_ROOT = "films/1";
 
 
 
