@@ -87,17 +87,18 @@ const LUKE_ROOT = "people/1";
                     let director = content.director
                     console.log(content);
                     console.log(title);
-                    resolve(title);
-                        })
+                    console.log(director);
+                    resolve(title, director);
+                        });
                     }
                 );
             };
     // google function thinks everything is done and want decipher promise unless you use return here
-   return getFilms(url).then((param) => {
-      console.log("title set "+ param);
+   return getFilms(url).then((param, param2) => {
+      console.log("title set "+ param, param2);
       conv.ask(new SimpleResponse({
-          speech: param,
-          text: param,
+          speech: param + " the director is " + param2,
+          text: param + " the director is " + param2,
       }))
     })
 });
