@@ -86,7 +86,7 @@ const PEOPLE_ROOT = "people/1";
                 );
             };
 
-    getLukeSkywalker(url).then((luke) => {
+   return getLukeSkywalker(url).then((luke) => {
       console.log("Luke variable set..." + luke);
 
       //break here?  data is in console.log above
