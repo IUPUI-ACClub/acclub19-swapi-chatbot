@@ -85,7 +85,7 @@ const PEOPLE_ROOT = "people/1";
                     }
                 );
             };
-
+    // google function thinks everything is done and want decipher promise unless you use return here
    return getLukeSkywalker(url).then((luke) => {
       console.log("Luke variable set..." + luke);
 
