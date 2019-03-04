@@ -79,6 +79,7 @@ const LUKE_ROOT = "people/1";
             (resolve, reject) => {
                 console.log("inside promise");
                 request.get(url, function(error, response, data){
+                    console.log(data);
                     if (error) reject(error);
                    // .parse does the opposite of .stringify
                     let content = JSON.parse(data);
