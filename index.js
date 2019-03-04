@@ -16,7 +16,20 @@ let request = require('request');
 
 const URL_ROOT = "https://swapi.co/api/";
 
-const PEOPLE_ROOT = "people/1";
+const FILMS_ROOT = "https://swapi.co/api/films";
+
+const PEOPLE_ROOT = "https://swapi.co/api/people";
+
+const PLANETS_ROOT = "https://swapi.co/api/planets";
+
+const SPECIES_ROOT = "https://swapi.co/api/species";
+
+const STARSHIPS_ROOT = "https://swapi.co/api/starships";
+
+const VEHICLES_ROOT = "https://swapi.co/api/vehicles";
+
+
+const LUKE_ROOT = "people/1";
 
 
 
@@ -54,8 +67,56 @@ const PEOPLE_ROOT = "people/1";
     // A function that returns a promise to resolve into the data fetched from API
 
     // resolve with .then handles 200 status codes, reject handles 500.
+ app.intent("userRequestsFilms", (conv) => {
+     console.log("inside first test intent");
+    let url = URL_ROOT + FILMS_ROOT;
+   
+    console.log(url);
 
-    let url = URL_ROOT + PEOPLE_ROOT;
+    let getFilms = (url) => {
+        console.log("inside getter");
+        return new Promise(
+            (resolve, reject) => {
+                console.log("inside promise");
+                //failhere maybe?
+                request.get(url, function(error, response, data){
+                    if (error) reject(error);
+
+                   // .parse does the opposite of .stringify
+                    let content = JSON.parse(data);
+                    let films = content;
+                    let newHope = content.results.title
+                    //let name = content["name"];
+                    console.log(content);
+                    console.log(name);
+
+                    resolve(newHope);
+
+                    //  getLukeSkywalker.then(function(nme) {
+                    //       console.log("resolved "+ nme);
+                    //       return nme;
+                    //  });
+
+                        })
+                    }
+                );
+            };
+    // google function thinks everything is done and want decipher promise unless you use return here
+   return getLukeSkywalker(url).then((fil) => {
+      console.log("Luke variable set..." + fil);
+
+      //break here?  data is in console.log above
+      conv.ask(new SimpleResponse({
+          speech: "This is a response " + fil,
+          text: "This is a response " + fil,
+      }))
+    })
+
+});
+
+// RETURN FILM INTENT 
+
+    let url = URL_ROOT + LUKE_ROOT;
    
     console.log(url);
 
@@ -73,7 +134,6 @@ const PEOPLE_ROOT = "people/1";
                     let name = content["name"];
                     console.log(content);
                     console.log(name);
-
                     resolve(name);
 
                     //  getLukeSkywalker.then(function(nme) {
@@ -97,7 +157,6 @@ const PEOPLE_ROOT = "people/1";
     })
 
 });
-
   // TO RETURN TO DIALOGFLOW AND CONTINUE THE CONVERSATION, USE conv.ask()
     // conv.ask(`Let's chat some more.`);
 
