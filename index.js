@@ -38,7 +38,7 @@ const LUKE_ROOT = "people/1";
     let url = URL_ROOT + LUKE_ROOT;
     console.log(url);
 
-    swapi.getPerson(1).then((result) => {
+    return swapi.getPerson(1).then((result) => {
         console.log(result);
         conv.ask(result);
 
