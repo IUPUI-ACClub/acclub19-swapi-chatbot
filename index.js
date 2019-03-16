@@ -40,10 +40,11 @@ const LUKE_ROOT = "people/1";
     return swapi.getPerson(1).then((result) => {
         console.log(result);
         console.log(result.name);
+        console.log(result.height);
 
            conv.ask(new SimpleResponse({
-          speech: "The jedi is " + result.name,
-          text: "The jedi is " + result.name,
+          speech: "The jedi is " + result.name + " his height is " + result.height,
+          text: "The jedi is " + result.name + " his height is " + result.height,
       }))
 
     });
