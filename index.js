@@ -35,15 +35,15 @@ const LUKE_ROOT = "people/1";
 // SAMPLE INTENT HANDLER
  app.intent("test", (conv) => {
      console.log("inside first test intent");
-    let url = URL_ROOT + LUKE_ROOT;
-    console.log(url);
+   
 
     return swapi.getPerson(1).then((result) => {
         console.log(result);
+        console.log(result.name);
 
            conv.ask(new SimpleResponse({
-          speech: "The jedi is " + result,
-          text: "The jedi is " + result,
+          speech: "The jedi is " + result.name,
+          text: "The jedi is " + result.name,
       }))
 
     });
