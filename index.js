@@ -6,7 +6,7 @@ const {dialogflow, BasicCard, SimpleResponse} = require('actions-on-google');
 
 const functions = require('firebase-functions');
 
-//const swapi = require('swapi-node');
+const swapi = require('swapi-node');
 
 const app = dialogflow({debug:true});
 
@@ -36,34 +36,14 @@ const LUKE_ROOT = "people/1";
  app.intent("test", (conv) => {
      console.log("inside first test intent");
     let url = URL_ROOT + LUKE_ROOT;
-   
     console.log(url);
 
-    let getLukeSkywalker = (url) => {
-        console.log("inside getter");
-        return new Promise(
-            (resolve, reject) => {
-                console.log("inside promise");
-                request.get(url, function(error, response, data){
-                    if (error) reject(error);
-                   // .parse does the opposite of .stringify
-                    let content = JSON.parse(data);
-                    let name = content["name"];
-                    console.log(content);
-                    console.log(name);
-                    resolve(name);
-                        })
-                    }
-                );
-            };
-    // google function thinks everything is done and want decipher promise unless you use return here
-   return getLukeSkywalker(url).then((luke) => {
-      console.log("Luke variable set..." + luke);
-      conv.ask(new SimpleResponse({
-          speech: "This is a response " + luke,
-          text: "This is a response " + luke,
-      }))
-    })
+    swapi.getPerson(1).then((result) => {
+        console.log(result);
+        conv.ask(result);
+
+    });
+  
 });
 
 // MOVIE INTENT HANDLER
@@ -88,6 +68,7 @@ const LUKE_ROOT = "people/1";
                     console.log(content);
                     console.log(title);
                     console.log(director);
+                    //breaks
                     resolve(title, director);
                         });
                     }
